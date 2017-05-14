@@ -7,3 +7,27 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Navigation for Posts
+.topic-nav {
+	a {
+		color: #777;
+	}
+	li {
+		list-style: none;
+		display: inline;
+		padding: 10px;
+    	text-align: center;
+    	border: 1px solid #eee;
+    	&:hover {
+			background-color: #e3e3e3;
+			color: #FFF;
+		}
+	}
+	.active {
+		border-top: 2px solid green;
+		border-bottom: initial;
+	}
+
+
+}

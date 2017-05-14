@@ -1,0 +1,12 @@
+1. User management
+2.topic category (interesting, featured, hot, week, month)
+3.Article Question( title, tags)
+4.can down-vote and up-vote post
+
+GET /posts
+GET /posts/create
+POST /posts
+GET /posts/{id}/edit
+GET /posts/{id}
+PATCH /posts/{id}
+DELETE /posts/{id}
