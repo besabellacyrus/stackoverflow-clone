@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'CategoriesController@index');
+Route::get('/tab/{tab?}', 'CategoriesController@show');
+Route::get('/ask-question', 'QuestionsController@index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
