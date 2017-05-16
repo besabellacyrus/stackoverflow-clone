@@ -4,6 +4,8 @@ namespace App;
 
 class Question extends Model
 {
+    protected $fillable = ['title', 'body'];
+
 	public function category()
 	{
 		return $this->belongsTo(Category::class);
@@ -19,8 +21,8 @@ class Question extends Model
     	return $this->hasMany(Answer::class);
     }
 
-    public function tags()
+    public function users()
     {
-    	return $this->belongsToMany(Tag::class);
+        return $this->belongsTo(User::class);
     }
 }

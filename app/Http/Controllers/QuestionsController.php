@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
+use App\Category;
 
 class QuestionsController extends Controller
 {
@@ -18,7 +20,10 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        return view('questions/create');
+        $categories = Category::orderBy('precedence', 'asc')->get();
+        $questions  = Category::first()->questions;
+        
+        return view('home', compact('categories', 'questions'));
     }
 
     /**
@@ -28,7 +33,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions/create');
     }
 
     /**
@@ -37,9 +42,16 @@ class QuestionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
+
+        Question::create(request(['title', 'body']));
+
+        return redirect('/');
     }
 
     /**

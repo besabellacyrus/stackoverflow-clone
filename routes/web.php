@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'CategoriesController@index');
-Route::get('/tab/{tab?}', 'CategoriesController@show');
-Route::get('/ask-question', 'QuestionsController@index');
+
+Route::get('/', 'QuestionsController@index');
+Route::get('/tab/{tab}', 'CategoriesController@show');
+
+// Creating Questions
+Route::get('/ask-question', 'QuestionsController@create');
+Route::post('/question', 'QuestionsController@store');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

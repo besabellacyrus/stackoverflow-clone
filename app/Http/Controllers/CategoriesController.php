@@ -14,9 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $questions  = Category::where('title', 'interesting')->first()->questions;
-        return view('home', compact('categories', 'questions'));
+        //
     }
 
     /**
@@ -46,10 +44,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($tab = 'interesting')
+    public function show(Category $tab)
     {
         $categories = Category::all();
-        $questions  = Category::where('title', $tab)->first()->questions;
+        $questions  = $tab->questions;
 
         return view('home', compact('questions', 'categories'));
     }
